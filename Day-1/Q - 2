@@ -1,0 +1,28 @@
+question link - https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/
+
+
+c++ code-
+
+
+class Solution {
+public:
+    double average(vector<int>& salary) {
+        //store the size of array in n
+        int n =salary.size();
+        //sort the array
+        sort(salary.begin(),salary.end());
+        // create two variables sum ans count, to store sum of numbers and count of numbers 
+        double sum= 0,count=0;
+        
+        // run a for loop from second element to second last element of the given array and take sum of all the elements on these indexes 
+        for(int i=1;i<n-1;i++){
+            sum += salary[i];
+            count++;
+                
+        }
+        // calculate average of all stored elements
+        double avgSalary = sum/count;
+       // return average
+        return avgSalary;
+    }
+};
