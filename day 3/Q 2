@@ -1,0 +1,40 @@
+question - https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/
+
+c++ code - 
+
+
+// Explanation:
+// (i)   we assign a variable answer with value of -1 as it would be return if no distance is found
+// (ii)  we assign distance variable with max value an integer can store so that for the first time it would be greater the distance and line  11 would work and so on
+// (iii) we check id ordinate or co-ordinate matches with on standing array, if so..
+// (iv)  we check distance with dist variable, if dist is less than previously stored we will update the value of dist
+// (v)   we store the index of that array to our answer as we have to return the index of array itself
+// (vi)   repeat until end of array
+// (vii)  in the end we return index as stored in answer
+
+// Time: O(n)
+// Space: O(1)
+
+
+
+class Solution{
+public:
+    int nearestValidPoint(int x, int y, vector<vector<int>> &points)
+    {
+        int answer = -1;
+        int dist = 999999; // INT_MAX would also work
+        for (int i = 0; i < points.size(); i++)
+        {
+            if (x == points[i][0] || y == points[i][1])
+            {
+                if (dist > abs(x - points[i][0]) + abs(y - points[i][1]))
+                {
+                    dist = abs(x - points[i][0]) + abs(y - points[i][1]);
+                    answer = i;
+                }
+            }
+        }
+        return answer;
+    }
+};
+
