@@ -1,0 +1,21 @@
+question -  https://leetcode.com/problems/sign-of-the-product-of-an-array/
+
+c++ code -
+
+class Solution {
+public:
+    //a better solution would be to check if any of the element in the array is a zero. If yes, then return 0, If no, then count how many negative numbers are there. If their count is even, then return 1, else return 0.
+
+int arraySign(vector<int>& nums) {
+        int countNeg = 0;
+        for(auto x: nums){
+            if(x < 0)
+                countNeg++;
+            else if(x == 0)
+                return 0;
+        }
+        if(countNeg%2 ==0)
+            return 1;
+        return -1;
+    }
+};
