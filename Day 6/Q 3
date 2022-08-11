@@ -1,0 +1,19 @@
+Question - https://leetcode.com/problems/move-zeroes/
+
+c++ code- 
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        
+        
+        //swappping the non 0`s to the front, if found 
+
+    for(int i=0, j=0; j<nums.size(); j++){
+        if(nums[j] != 0){
+            swap(nums[i], nums[j]);
+            i++;
+        }
+    }
+    }
+};
