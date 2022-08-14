@@ -1,0 +1,27 @@
+question - https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/
+
+c++ code -
+class Solution {
+public:
+    string freqAlphabets(string s) {
+         stack<int> stack;
+        string str="";
+        for(int i=0;i<s.size();i++){
+            if(s[i]!='#'){
+                stack.push(s[i]-'0');
+            }else{
+            int temp=stack.top();
+            stack.pop();
+            int temp2=stack.top();
+            stack.pop();
+            stack.push(temp2*10+temp);
+            }
+        }
+        while(!stack.empty()){
+            str+=('a'-1+stack.top());
+            stack.pop();
+        }
+        reverse(str.begin(),str.end());
+        return str;
+    }
+};
