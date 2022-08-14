@@ -1,0 +1,14 @@
+question - https://leetcode.com/problems/merge-strings-alternately/
+c++ solution - 
+
+class Solution {
+public:
+    
+    string mergeAlternately(string w1, string w2) {
+    int p = 0, sz = min(w1.size(), w2.size());
+    string res;
+    while (p < sz)
+        res += string() + w1[p] + w2[p++];
+    return res + w1.substr(p) + w2.substr(p);
+}
+};
