@@ -1,0 +1,40 @@
+question - https://leetcode.com/problems/intersection-of-two-arrays-ii/
+
+c++ code - 
+
+class Solution {
+public:
+    //sort both the vectors
+    //we iterate over both vectors using two pointers p1 and p2 until any pointer points to         memory location which is out of bound  
+    //if we found elements pointed by both pointers are equal then insert into vector and           increment both the pointers
+    //if they are not equal , then increment that pointer which points to lower value
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>out;
+        
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        
+        int p1=0,p2=0;
+        
+        while(p1<nums1.size() && p2<nums2.size())
+        {
+            if(nums1[p1]==nums2[p2])
+            {
+                out.push_back(nums1[p1]);
+                p1++;
+                p2++;
+            }
+            //incrementing that pointer which points to lower value because if we increment other pointer ,we might loss some values
+            else if(nums1[p1]<nums2[p2])
+            {
+                p1++;
+            }
+            else
+            {
+                p2++;
+            }
+        }
+        return out;
+        
+    }
+};
